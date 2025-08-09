@@ -19,13 +19,13 @@ func main() {
 	opts := []grpc.DialOption{grpc.WithInsecure()}
 
 	// Connect to AuthService
-	err := authpb.RegisterAuthServiceHandlerFromEndpoint(ctx, mux, "localhost:50052", opts)
+	err := authpb.RegisterAuthServiceHandlerFromEndpoint(ctx, mux, "localhost:50051", opts)
 	if err != nil {
 		log.Fatalf("failed to connect to AuthService: %v", err)
 	}
 
 	// Connect to UserService
-	err = userpb.RegisterUserServiceHandlerFromEndpoint(ctx, mux, "localhost:50051", opts)
+	err = userpb.RegisterUserServiceHandlerFromEndpoint(ctx, mux, "localhost:50052", opts)
 	if err != nil {
 		log.Fatalf("failed to connect to UserService: %v", err)
 	}
